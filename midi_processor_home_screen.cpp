@@ -64,7 +64,7 @@ rppicomidi::Home_screen::Select_result rppicomidi::Home_screen::on_select(View**
     return menu.on_select(new_view);
 }
 
-void rppicomidi::Home_screen::set_connected_device(const char* device_label_, uint8_t num_in_cables_, uint8_t num_out_cables_)
+void rppicomidi::Home_screen::set_connected_device(const char* device_label_, uint8_t num_in_cables_, uint8_t num_out_cables_, bool is_active_)
 {
     // save the product string
     strncpy(device_label, device_label_, max_device_label);
@@ -94,9 +94,11 @@ void rppicomidi::Home_screen::set_connected_device(const char* device_label_, ui
             Menu_item* item = new View_launch_menu_item(*midi_out_setup.at(port),line, screen, label_font);
             menu.add_menu_item(item);
         }
-        // Treat the menu as a sub-view of this view. Do not change view.
-        menu.entry();
-        draw();
+        if (is_active_) {
+            // Treat the menu as a sub-view of this view. Do not change view.
+            menu.entry();
+            draw();
+        }
     }
 }
 

@@ -46,6 +46,8 @@ public:
 
     void draw() final;
     Select_result on_select(View** new_view) final;
+    void entry() final { menu.entry(); }
+    void exit() final {menu.exit(); }
     void on_increment(uint32_t delta, bool is_shifted) final {menu.on_increment(delta, is_shifted); };
     void on_decrement(uint32_t delta, bool is_shifted) final {menu.on_decrement(delta, is_shifted); };
 
@@ -55,10 +57,11 @@ public:
      * @param device_label_ A pointer to the new device label (C-style) string
      * @param num_in_cables_ The number of virtual MIDI IN cables of the connected device
      * @param num_out_cables_ The number of virtual MIDI_OUT cables of the connected device
+     * @param is_active_ is true if this view is on the top of the view stack and needs to be redrawn after this function
      *
      * @note the device_label will be truncated to max_device_label characters
      */
-    void set_connected_device(const char* device_label_, uint8_t num_in_cables_, uint8_t num_out_cables_);
+    void set_connected_device(const char* device_label_, uint8_t num_in_cables_, uint8_t num_out_cables_, bool is_active_ = true);
 
     /**
      * @brief Set the home screen for preset backup to external flash drive mode
