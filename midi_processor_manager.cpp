@@ -497,7 +497,7 @@ bool rppicomidi::Midi_processor_manager::deserialize(char* json_format)
                                     break;
                                 }
                                 else {
-                                    add_new_midi_processor_by_idx(proc_type_idx, midi_out_port, true);
+                                    add_new_midi_processor_by_idx(proc_type_idx, midi_out_port, false);
                                     JSON_Value* setting_values = json_object_get_value_at(proc_objects, proc_idx);
                                     JSON_Object* setting_objects = json_value_get_object(setting_values);
                                     result = midi_out_processors[midi_out_port][proc_idx].proc->deserialize_settings(setting_objects);
