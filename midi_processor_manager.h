@@ -295,6 +295,17 @@ public:
     void clear_all_processors();
 
     bool get_product_string_from_setting_data(char* json_format, char* product_string, size_t max_string);
+
+    /**
+     * @brief add a new processor type to the proclist
+     *
+     * @param name the name of the processor
+     * @param proc a pointer to the make new function
+     * @param view a pointer to the make new View function
+     */
+    void add_new_processor_type(const char* name, mp_factory_fn proc, mpsv_factory_fn view) {
+        proclist.push_back({name, proc, view});
+    }
 private:
     /**
      * @brief Construct a new Midi_processor_manager object
