@@ -11,7 +11,7 @@ target_sources(midi_processor_lib INTERFACE
     ${CMAKE_CURRENT_LIST_DIR}/midi_processor_home_screen.cpp
     ${CMAKE_CURRENT_LIST_DIR}/midi_processor_manager.cpp
     ${CMAKE_CURRENT_LIST_DIR}/midi_processor_mc_fader_pickup.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/midi_processor_mc_fader_pickup_settings_view.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/midi_processor_no_settings_view.cpp
     ${CMAKE_CURRENT_LIST_DIR}/midi_processor_setup_screen.cpp
     ${CMAKE_CURRENT_LIST_DIR}/midi_processor_transpose.cpp
     ${CMAKE_CURRENT_LIST_DIR}/midi_processor_transpose_view.cpp
