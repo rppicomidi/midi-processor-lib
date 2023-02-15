@@ -48,7 +48,7 @@ namespace rppicomidi
 class Midi_processor_manager
 {
 private:
-    typedef Midi_processor* (*mp_factory_fn)(uint16_t unique_id);
+    typedef Midi_processor* (*mp_factory_fn)(uint16_t unique_id, uint8_t cable);
     typedef Midi_processor_settings_view* (*mpsv_factory_fn)(Mono_graphics& screen_, const Rectangle& rect_, Midi_processor* proc_);
     /**
      * @brief Midi_processor ptr with a flag to choose whether to call the process() 

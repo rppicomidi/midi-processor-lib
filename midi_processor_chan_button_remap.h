@@ -34,7 +34,7 @@ public:
     bool feedback(uint8_t *packet) final { return process_internal(packet, 1, 0); }
     bool has_feedback_process() final {return true; }
     static const char *static_getname() { return "Channel Button Remap"; }
-    static Midi_processor* static_make_new(uint16_t unique_id_) { return new Midi_processor_chan_button_remap(unique_id_); }
+    static Midi_processor* static_make_new(uint16_t unique_id_, uint8_t) { return new Midi_processor_chan_button_remap(unique_id_); }
 
 };
 }

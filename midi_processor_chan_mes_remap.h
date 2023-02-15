@@ -100,7 +100,7 @@ public:
         return newval;
     }
     static const char *static_getname() { return "Channel Message Remap"; }
-    static Midi_processor* static_make_new(uint16_t unique_id_) { return new Midi_processor_chan_mes_remap(unique_id_); }
+    static Midi_processor* static_make_new(uint16_t unique_id_, uint8_t) { return new Midi_processor_chan_mes_remap(unique_id_); }
 protected:
     bool process_internal(uint8_t *packet, size_t first_idx, size_t second_idx);
     const std::string note_msg;

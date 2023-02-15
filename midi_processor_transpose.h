@@ -115,7 +115,7 @@ public:
 
     // The following are manditory static methods to enable the Midi_processor_manager class
     static const char* static_getname() { return "Transpose"; }
-    static Midi_processor* static_make_new(uint16_t unique_id_) {return new Midi_processor_transpose(unique_id_); }
+    static Midi_processor* static_make_new(uint16_t unique_id_, uint8_t) {return new Midi_processor_transpose(unique_id_); }
 protected:
     Setting_number<uint8_t> chan;           //!< MIDI Channel Number from 1
     Setting_number<uint8_t> min_note;       //!< Minimum note number to transpose 0-127

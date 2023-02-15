@@ -82,7 +82,7 @@ rppicomidi::Midi_processor_settings_view* rppicomidi::Midi_processor_manager::ad
     Midi_processor_settings_view* retview = nullptr;
     assert(screen);
     if (idx < proclist.size()) {
-        auto proc = proclist[idx].processor(unique_id++);
+        auto proc = proclist[idx].processor(unique_id++, cable);
         auto view = proclist[idx].view(*screen, screen->get_clip_rect(), proc);
         mutex_enter_blocking(&processing_mutex);
         if (is_midi_in) {
