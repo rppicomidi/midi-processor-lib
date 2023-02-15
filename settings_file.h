@@ -198,8 +198,8 @@ public:
      */
     bool get_setting_file_json_string(const char* directory, const char* file, char** json_string);
 
-    bool save_screenshot(const uint8_t* bmp, const int nbytes);
 #if defined(CFG_TUH_MSC) && CFG_TUH_MSC
+    bool save_screenshot(const uint8_t* bmp, const int nbytes);
     FRESULT export_all_screenshots();
 #endif
 

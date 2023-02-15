@@ -23,7 +23,9 @@
 #include <assert.h>
 #include "settings_file.h"
 #include "midi_processor_manager.h"
+#if defined(CFG_TUH_MSC) && CFG_TUH_MSC
 #include "rp2040_rtc.h"
+#endif
 rppicomidi::Settings_file::Settings_file() : vid{0}, pid{0}
 {
     // Make sure the flash filesystem is working
@@ -1081,6 +1083,7 @@ void rppicomidi::Settings_file::static_delete_file(EmbeddedCli* cli, char* args,
     Settings_file::instance().delete_file(fn);
 }
 
+#if defined(CFG_TUH_MSC) && CFG_TUH_MSC
 bool rppicomidi::Settings_file::save_screenshot(const uint8_t* bmp, const int nbytes)
 {
     int err = pico_mount(false);
@@ -1128,7 +1131,6 @@ bool rppicomidi::Settings_file::save_screenshot(const uint8_t* bmp, const int nb
     return err == nbytes;
 }
 
-#if defined(CFG_TUH_MSC) && CFG_TUH_MSC
 FRESULT rppicomidi::Settings_file::export_all_screenshots()
 {
     FRESULT fatres = f_chdrive("0:");
